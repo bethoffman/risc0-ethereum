@@ -208,7 +208,7 @@ fn proves_incremental() {
 
 #[test]
 fn rejects_no_claim_receipt_provided() {
-    // NOTE: We dont provide an assumption receipt here.
+    // NOTE: We don't provide an assumption receipt here.
     let env = ExecutorEnv::builder()
         .write(
             &GuestState::initial(SET_BUILDER_ID)
@@ -244,7 +244,7 @@ fn rejects_no_set_builder_receipt_provided() {
     let session_info = default_executor().execute(env, SET_BUILDER_ELF).unwrap();
     let state = GuestState::decode(&session_info.journal.bytes).unwrap();
 
-    // NOTE: We dont provide a set builder receipt here.
+    // NOTE: We don't provide a set builder receipt here.
     let env = ExecutorEnv::builder()
         .write(&state.into_input(vec![], true).unwrap())
         .unwrap()
